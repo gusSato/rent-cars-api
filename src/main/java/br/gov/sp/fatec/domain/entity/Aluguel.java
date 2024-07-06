@@ -1,18 +1,17 @@
 package br.gov.sp.fatec.domain.entity;
 
 import br.gov.sp.fatec.domain.enums.AluguelStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @RequiredArgsConstructor
 public class Aluguel {
 
@@ -20,6 +19,18 @@ public class Aluguel {
     @GeneratedValue
     private Long id;
 
+    private Date dataInicio;
+    private Date dataFim;
+    private double valor;
+
     @Enumerated(value = EnumType.STRING)
     private AluguelStatus status;
+
+    @OneToMany(mappedBy = "aluguel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Carro> carros;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
 }
