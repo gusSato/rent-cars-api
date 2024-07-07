@@ -21,6 +21,11 @@ public class ClienteServiceImpl implements ClienteService {
     private final ClienteRepository clienteRepository;
     private final ClienteMapper clienteMapper;
 
+    public ClienteServiceImpl(ClienteRepository clienteRepository, ClienteMapper clienteMapper) {
+        this.clienteRepository = clienteRepository;
+        this.clienteMapper = clienteMapper;
+    }
+
     @Override
     public ClienteResponse save(ClienteRequest clienteRequest) {
         return clienteMapper.map(clienteRepository.save(clienteMapper.map(clienteRequest)));

@@ -20,6 +20,11 @@ public class CarroServiceImpl implements CarroService {
     private final CarroRepository carroRepository;
     private final CarroMapper carroMapper;
 
+    public CarroServiceImpl(CarroRepository carroRepository, CarroMapper carroMapper) {
+        this.carroRepository = carroRepository;
+        this.carroMapper = carroMapper;
+    }
+
     @Override
     public CarroResponse save(CarroRequest carroRequest) {
         return carroMapper.map(carroRepository.save(carroMapper.map(carroRequest)));

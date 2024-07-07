@@ -17,6 +17,11 @@ public class AluguelServiceImpl implements AluguelService {
     private final AluguelRepository aluguelRepository;
     private final AluguelMapper aluguelMapper;
 
+    public AluguelServiceImpl(AluguelRepository aluguelRepository, AluguelMapper aluguelMapper) {
+        this.aluguelRepository = aluguelRepository;
+        this.aluguelMapper = aluguelMapper;
+    }
+
     @Override
     public AluguelResponse save(AluguelRequest aluguelRequest) {
         return null;

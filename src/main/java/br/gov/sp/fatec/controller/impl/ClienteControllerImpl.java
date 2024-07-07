@@ -16,6 +16,10 @@ public class ClienteControllerImpl implements ClienteController {
 
     private final ClienteService clienteService;
 
+    public ClienteControllerImpl(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
+
     @Override
     public ResponseEntity<ClienteResponse> save(ClienteRequest cliente) {
         ClienteResponse clienteResponse = clienteService.save(cliente);

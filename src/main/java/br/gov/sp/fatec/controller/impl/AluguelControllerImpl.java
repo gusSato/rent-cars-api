@@ -16,6 +16,10 @@ public class AluguelControllerImpl implements AluguelController {
 
     private final AluguelService aluguelService;
 
+    public AluguelControllerImpl(AluguelService aluguelService) {
+        this.aluguelService = aluguelService;
+    }
+
     @Override
     public ResponseEntity<AluguelResponse> save(AluguelRequest aluguel) {
         return null;

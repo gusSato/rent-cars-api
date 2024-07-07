@@ -17,6 +17,10 @@ public class CarroControllerImpl implements CarroController {
 
     private final CarroService carroService;
 
+    public CarroControllerImpl(CarroService carroService) {
+        this.carroService = carroService;
+    }
+
     @Override
     public ResponseEntity<CarroResponse> save(CarroRequest carro) {
         CarroResponse carroResponse = carroService.save(carro);
